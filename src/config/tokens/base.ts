@@ -39,23 +39,6 @@ const tokens: IToken[] = [
     key: "Yafa",
     symbol: "Yafa",
   },
-
-  {
-    address: "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
-    decimals: 6,
-    name: "USDC",
-    key: "USDC",
-    symbol: "USDC",
-    diffDecimals: true,
-  },
-  {
-    address: "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
-    decimals: 18,
-    name: "ETH",
-    key: "ETH",
-    symbol: "ETH",
-    nativeCoin: true,
-  },
 ];
 
 export default tokens;

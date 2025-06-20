@@ -91,9 +91,6 @@ const processSolDeposit = async (chainId: number) => {
             if (outputToken.address === dummyToken.address)
                 throw new Error("Can't find matching token");
 
-            if (inputToken.decimals !== outputToken.decimals)
-                throw new Error("Decimals mismatch");
-
             const amount = new BigNumber(data.amount).plus(data.fee);
             const amountIn = amount.div(10 ** inputToken.decimals);
             const amountOut = new BigNumber(data.amount)

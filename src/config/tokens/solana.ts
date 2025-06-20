@@ -14,8 +14,6 @@ const tokens: ITokenSolana[] = [
     isActive: true,
   },
 
-  
-
   {
     key: "Infinaeon",
     address: "42py4U4kUcxUsj2AYAbPuu9ottwYM2Y9P8jo3fHiNF42", // EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v
@@ -27,6 +25,20 @@ const tokens: ITokenSolana[] = [
     isMintable: false,
     isActive: true,
   },
+
+  {
+    key: "Yafa",
+    address: "YAFAJvjUv9MVAKcTE7Y8ouo45QNKVK6fCMzdxt2tjPs", // EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v
+    name: "Yafa",
+    symbol: "Yafa",
+    decimals: 9,
+    minTx: 1,
+    maxTx: 1000000,
+    isMintable: false,
+    isActive: true,
+  },
+
+  
 
 ];
 

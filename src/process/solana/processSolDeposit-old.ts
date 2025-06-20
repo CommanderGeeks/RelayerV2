@@ -50,10 +50,6 @@ export async function processSolDeposit() {
                 if (outputToken.address === dummyToken.address)
                     throw new Error("Can't find matching token");
 
-                if (inputToken.decimals !== outputToken.decimals)
-                    if (!inputToken?.diffDecimals && !outputToken?.diffDecimals)
-                        throw new Error("Decimials mismatch");
-
                 const amount = new BigNumber(depositData.amount).plus(depositData.fee);
                 const amountIn = amount.div(10 ** inputToken.decimals)
                 const amountOut = new BigNumber(depositData.amount)
