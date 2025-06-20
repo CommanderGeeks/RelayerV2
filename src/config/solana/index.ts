@@ -14,26 +14,10 @@ export const walletKeypair = (() => {
     try {
         console.log("🔑 Loading wallet keypair...");
         
-        // Option 1: Try JSON array from environment  
-        if (process.env.SOLANA_PRIVATE_KEY_JSON) {
-            console.log("📄 Using SOLANA_PRIVATE_KEY_JSON from environment");
-            const privateKeyArray = JSON.parse(process.env.SOLANA_PRIVATE_KEY_JSON);
+        if (process.env.KEYPAIR_PATH) {
+            console.log("📄 Using KEYPAIR_PATH from environment");
+            const privateKeyArray = JSON.parse(process.env.KEYPAIR_PATH);
             return Keypair.fromSecretKey(Uint8Array.from(privateKeyArray));
-        }
-        
-        // Option 2: Try base64 encoded keypair from environment
-        if (process.env.SOLANA_PRIVATE_KEY_BASE64) {
-            console.log("🔐 Using SOLANA_PRIVATE_KEY_BASE64 from environment");
-            const privateKeyBytes = Buffer.from(process.env.SOLANA_PRIVATE_KEY_BASE64, 'base64');
-            return Keypair.fromSecretKey(privateKeyBytes);
-        }
-        
-        // Option 3: Try reading from file (fallback for local development)
-        if (fs.existsSync(KEYPAIR_PATH)) {
-            console.log(`📁 Using wallet file: ${KEYPAIR_PATH}`);
-            return Keypair.fromSecretKey(
-                Uint8Array.from(JSON.parse(fs.readFileSync(KEYPAIR_PATH, "utf-8")))
-            );
         }
         
         throw new Error(`❌ No wallet found. Set SOLANA_PRIVATE_KEY_JSON, SOLANA_PRIVATE_KEY_BASE64, or ensure ${KEYPAIR_PATH} exists.`);
