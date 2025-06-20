@@ -31,7 +31,7 @@ const tokens: ITokenSolana[] = [
     address: "YAFAJvjUv9MVAKcTE7Y8ouo45QNKVK6fCMzdxt2tjPs", // EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v
     name: "Yafa",
     symbol: "Yafa",
-    decimals: 9,
+    decimals: 6,
     minTx: 1,
     maxTx: 1000000,
     isMintable: false,
