@@ -1,0 +1,153 @@
+# Environment files
+.env
+.env.*
+.env.development
+.env.production
+.env.local
+.env.test
+.env.backup
+
+# Database files (CRITICAL - Contains sensitive transaction data)
+data/
+*.db
+*.sqlite
+*.wt
+WiredTiger*
+mongod.lock
+*.bson
+
+# Logs (CRITICAL - May contain sensitive information)
+logs/
+*.log
+
+# Setup and documentation with sensitive info (CRITICAL)
+SETUP_INSTRUCTIONS.md
+*SETUP*
+*INSTRUCTION*
+README_PRIVATE.md
+DEPLOYMENT*.md
+
+# Node modules
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build outputs
+dist/
+build/
+*.tsbuildinfo
+
+# Secrets and credentials (CRITICAL)
+*secret*
+*private*
+*credential*
+*password*
+*key*
+
+# Solana keypairs (CRITICAL)
+wallet/
+*.json
+keypair.json
+id.json
+
+# AWS and deployment (CRITICAL)
+.aws/
+aws-config.json
+deployment-secrets.json
+
+# QuickNode and RPC configs (CRITICAL)
+quicknode.json
+rpc-config.json
+
+# Telegram configs (CRITICAL)
+bot-config.json
+telegram.json
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Backup files
+*.backup
+*.bak
+
+# Temporary files
+*.tmp
+*.temp
+
+# Docker override files with secrets
+docker-compose.override.yml
+docker-compose.prod.yml
+docker-compose.*.yml
+
+# Certificate files
+*.pem
+*.key
+*.crt
+*.cert
+
+# Package manager lock files (optional - uncomment if needed)
+# package-lock.json
+# yarn.lock
+
+# Test coverage
+coverage/
+*.coverage
+
+# Runtime data
+*.pid
+*.seed
+*.pid.lock
+
+# Dependency directories
+jspm_packages/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Microbundle cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# parcel-bundler cache (https://parceljs.org/)
+.cache
+.parcel-cache
+
+# Next.js build output
+.next
+
+# Nuxt.js build / generate output
+.nuxt
+
+# Gatsby files
+.cache/
+public
+
+# Storybook build outputs
+.out
+.storybook-out
+
+# Temporary folders
+tmp/
+temp/

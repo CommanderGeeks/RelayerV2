@@ -1,0 +1,44 @@
+services:
+  geeksbridge:
+    build: .
+    container_name: geeksbridge
+    volumes:
+      - /logs/geeksbridge:/logs
+    environment:
+      - CRON_SCHEDULE=*/3 * * * *
+      - BLOCK_CHUNK_SIZE=4
+      - BOT_TOKEN=
+      - ERROR_BOT_TOKEN=
+      - ERROR_CHATID=
+      - DEV_CHATID=
+      - HASH_SECRET=
+      - MONGODB_URI=
+      - RELAYER_ADDRESS=
+      - RELAYER_KEY=
+      - DEPOSIT_KECCAK=
+      - CONFIG_ACCOUNT=
+      - PROGRAM_ID=
+      - KEYPAIR_PATH=
+      # RPC URLs
+      - BSC_RPC_URL=${BSC_RPC_URL}=
+      - BASE_RPC_URL=${BASE_RPC_URL}
+      - SOLANA_RPC_URL=${SOLANA_RPC_URL}
+      - INF_RPC_URL=${INF_RPC_URL}
+      # Bridge addresses
+      - FEE_RECEIVER=${FEE_RECEIVER}
+  #   depends_on:
+  #     - mongodb
+  # mongodb:
+  #   image: mongo:latest
+  #   ports:
+  #     - "27017:27017"
+  #   restart: always
+  #   environment:
+  #     MONGO_INITDB_ROOT_USERNAME: 
+  #     MONGO_INITDB_ROOT_PASSWORD: 
+  #   volumes:
+  #     - data:/data/db
+volumes:
+  data:
+    driver: local
+    
