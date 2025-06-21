@@ -31,27 +31,11 @@ const tokens = [
         symbol: "Shaman",
     },
     {
-        address: "0x46A15b3E4Fa073E0D29Af5A5602E929E97a9bF12",
-        decimals: 6,
+        address: "0xE51f9bb2E4Fe0AB024dDCD2DAFD600073B579342",
+        decimals: 9,
         name: "Yafa",
         key: "Yafa",
         symbol: "Yafa",
-    },
-    {
-        address: "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
-        decimals: 6,
-        name: "USDC",
-        key: "USDC",
-        symbol: "USDC",
-        diffDecimals: true,
-    },
-    {
-        address: "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
-        decimals: 18,
-        name: "ETH",
-        key: "ETH",
-        symbol: "ETH",
-        nativeCoin: true,
     },
 ];
 exports.default = tokens;

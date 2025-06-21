@@ -53,18 +53,6 @@ const chainList: IChain[] = [
     rpcBlockLimit: 50,
     tokens: baseTokens,
   },
-  {
-    isActive: true,
-    chainId: 1,
-    name: "Eth",
-    rpc: ETH_RPC_URL,
-    portalAddress: "0x13e65B7C2066926aC90E6b09831cF460F9ee16E8",
-    explorer: "https://etherscan.io",
-    startBlock: 21075968,
-    requiredBlocks: 3,
-    rpcBlockLimit: 15,
-    tokens: ethTokens,
-  },
 
   {
     isActive: true,

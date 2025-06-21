@@ -63,9 +63,6 @@ async function processSolDeposit() {
                 const outputToken = (0, helpers_1.getTokenByKey)(inputToken.key, depositData.toChainId) || config_1.dummyToken;
                 if (outputToken.address === config_1.dummyToken.address)
                     throw new Error("Can't find matching token");
-                if (inputToken.decimals !== outputToken.decimals)
-                    if (!inputToken?.diffDecimals && !outputToken?.diffDecimals)
-                        throw new Error("Decimials mismatch");
                 const amount = new bignumber_js_1.BigNumber(depositData.amount).plus(depositData.fee);
                 const amountIn = amount.div(10 ** inputToken.decimals);
                 const amountOut = new bignumber_js_1.BigNumber(depositData.amount)

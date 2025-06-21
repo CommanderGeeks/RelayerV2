@@ -22,21 +22,33 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.FEE_RECEIVER = exports.CONFIG_ACCOUNT = exports.PROGRAM_ID = exports.walletKeypair = exports.KEYPAIR_PATH = exports.RPC_URL = exports.SOLANA_CHAIN_ID = void 0;
+exports.FEE_RECEIVER = exports.CONFIG_ACCOUNT = exports.PROGRAM_ID = exports.walletKeypair = exports.RPC_URL = exports.SOLANA_CHAIN_ID = void 0;
 const web3_js_1 = require("@solana/web3.js");
-const fs_1 = __importDefault(require("fs"));
 const dotenv = __importStar(require("dotenv"));
 dotenv.config();
+const { SOLANA_PRIVATE_KEY_JSON } = process.env;
 exports.SOLANA_CHAIN_ID = 20001;
 // Load environment variables
-exports.RPC_URL = process.env.SOLANA_RPC_URL;
-exports.KEYPAIR_PATH = process.env.KEYPAIR_PATH;
+exports.RPC_URL = process.env.SOLANA_RPC_URL || "https://api.mainnet-beta.solana.com";
 // Load wallet keypair
-exports.walletKeypair = web3_js_1.Keypair.fromSecretKey(Uint8Array.from(JSON.parse(fs_1.default.readFileSync(exports.KEYPAIR_PATH, "utf-8"))));
+exports.walletKeypair = (() => {
+    try {
+        console.log("🔑 Loading wallet keypair...");
+        if (!SOLANA_PRIVATE_KEY_JSON) {
+            throw new Error("❌ SOLANA_PRIVATE_KEY_JSON environment variable not found");
+        }
+        // Parse the JSON string array from environment variable
+        const privateKeyArray = JSON.parse(SOLANA_PRIVATE_KEY_JSON);
+        const keypair = web3_js_1.Keypair.fromSecretKey(Uint8Array.from(privateKeyArray));
+        console.log(`✅ Wallet loaded successfully: ${keypair.publicKey.toString()}`);
+        return keypair;
+    }
+    catch (error) {
+        console.error("❌ Failed to load wallet:", error);
+        throw error;
+    }
+})();
 exports.PROGRAM_ID = new web3_js_1.PublicKey(process.env.PROGRAM_ID);
 exports.CONFIG_ACCOUNT = new web3_js_1.PublicKey(process.env.CONFIG_ACCOUNT);
 exports.FEE_RECEIVER = new web3_js_1.PublicKey("C6DuM7pcwodHEwp3T3w4NTJ6NNbXDaLyhuRh3zAWecy1");
