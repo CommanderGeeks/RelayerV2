@@ -55,4 +55,5 @@ id.json
 !package.json
 !package-lock.json
 !tsconfig.json
+!tsconfig.prod.json
 !yarn.lock

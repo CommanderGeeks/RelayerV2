@@ -1,11 +1,13 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "sourceMap": false
+    "sourceMap": false,
+    "removeComments": true
   },
   "exclude": [
-    "spec",
-    "src/**/*.mock.ts",
-    "src/public/"
+    "node_modules",
+    "dist",
+    "**/*.spec.ts",
+    "**/*.test.ts"
   ]
 }
