@@ -3,24 +3,26 @@ import fs from "fs";
 import * as dotenv from "dotenv";
 dotenv.config();
 
+const { SOLANA_PRIVATE_KEY_JSON } = process.env;
+
 export const SOLANA_CHAIN_ID = 20001
 
 // Load environment variables
 export const RPC_URL = process.env.SOLANA_RPC_URL || "https://api.mainnet-beta.solana.com";
-export const KEYPAIR_PATH = process.env.KEYPAIR_PATH || "./wallet/id.json";
 
 // Load wallet keypair with multiple fallback options
 export const walletKeypair = (() => {
     try {
         console.log("🔑 Loading wallet keypair...");
         
-        if (process.env.KEYPAIR_PATH) {
-            console.log("📄 Using KEYPAIR_PATH from environment");
-            const privateKeyArray = JSON.parse(process.env.KEYPAIR_PATH);
-            return Keypair.fromSecretKey(Uint8Array.from(privateKeyArray));
-        }
+        if (SOLANA_PRIVATE_KEY_JSON) {
+            console.log("📄 Using SOLANA_PRIVATE_KEY_JSON");
+            const arr = JSON.parse(SOLANA_PRIVATE_KEY_JSON);
+            return Keypair.fromSecretKey(Uint8Array.from(arr));
+            }
         
-        throw new Error(`❌ No wallet found. Set SOLANA_PRIVATE_KEY_JSON, SOLANA_PRIVATE_KEY_BASE64, or ensure ${KEYPAIR_PATH} exists.`);
+        throw new Error(`❌ No wallet found. Set SOLANA_PRIVATE_KEY_JSON, SOLANA_PRIVATE_KEY_BASE64, or ensure ${ SOLANA_PRIVATE_KEY_JSON } = process.env;
+} exists.`);
         
     } catch (error) {
         console.error("❌ Failed to load wallet:", error);

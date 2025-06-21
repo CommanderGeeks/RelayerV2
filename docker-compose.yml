@@ -18,7 +18,7 @@ services:
       - DEPOSIT_KECCAK=
       - CONFIG_ACCOUNT=
       - PROGRAM_ID=
-      - KEYPAIR_PATH=
+      - SOLANA_PRIVATE_KEY_JSON=
       # RPC URLs
       - BSC_RPC_URL=${BSC_RPC_URL}=
       - BASE_RPC_URL=${BASE_RPC_URL}
