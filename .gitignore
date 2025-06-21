@@ -35,6 +35,7 @@ yarn-error.log*
 
 # Build outputs
 build/
+dist/
 *.tsbuildinfo
 
 # Secrets and credentials (CRITICAL)
@@ -44,24 +45,23 @@ build/
 *password*
 *key*
 
-# Solana keypairs (CRITICAL)
+# Solana keypairs and wallet files (CRITICAL)
 wallet/
-*.json
+wallet.json
 keypair.json
 id.json
+*-keypair.json
+
+# Config files with sensitive data
+aws-config.json
+deployment-secrets.json
+quicknode.json
+rpc-config.json
+bot-config.json
+telegram.json
 
 # AWS and deployment (CRITICAL)
 .aws/
-aws-config.json
-deployment-secrets.json
-
-# QuickNode and RPC configs (CRITICAL)
-quicknode.json
-rpc-config.json
-
-# Telegram configs (CRITICAL)
-bot-config.json
-telegram.json
 
 # IDE files
 .vscode/
@@ -91,10 +91,6 @@ docker-compose.*.yml
 *.key
 *.crt
 *.cert
-
-# Package manager lock files (optional - uncomment if needed)
-# package-lock.json
-# yarn.lock
 
 # Test coverage
 coverage/

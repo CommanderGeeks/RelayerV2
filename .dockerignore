@@ -46,8 +46,13 @@ docs/
 *.temp
 .cache
 
-# Wallet files (security)
+# Wallet files (security) - but NOT package.json or tsconfig.json
 wallet/
-*.json
 keypair.json
 id.json
+# Exclude all JSON files EXCEPT package.json, tsconfig.json, and other essential configs
+*.json
+!package.json
+!package-lock.json
+!tsconfig.json
+!yarn.lock
