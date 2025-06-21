@@ -1,0 +1,57 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const tokens = [
+    // geeks
+    {
+        address: "0xDEAF504EB2C7fbc0ac9F3f97Cad1dfB47794ADb5",
+        decimals: 18,
+        name: "GEEKS",
+        key: "GEEKS",
+        symbol: "GEEKS",
+    },
+    {
+        address: "0x5F964c01CfCeAf1D9dC247C037DB9b833aB49dD4",
+        decimals: 18,
+        name: "DEFIRE",
+        key: "DEFIRE",
+        symbol: "DEFIRE",
+    },
+    {
+        address: "0xa16305Bb02F5A81ba37ef299c466F74d3eD58bd5",
+        decimals: 18,
+        name: "DEFI",
+        key: "DEFI",
+        symbol: "DEFI",
+    },
+    {
+        address: "0x81eA976BdeEe2151171a7a2c19Bad80b6C629afd",
+        decimals: 6,
+        name: "Shaman",
+        key: "Shaman",
+        symbol: "Shaman",
+    },
+    {
+        address: "0x46A15b3E4Fa073E0D29Af5A5602E929E97a9bF12",
+        decimals: 6,
+        name: "Yafa",
+        key: "Yafa",
+        symbol: "Yafa",
+    },
+    {
+        address: "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        decimals: 6,
+        name: "USDC",
+        key: "USDC",
+        symbol: "USDC",
+        diffDecimals: true,
+    },
+    {
+        address: "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+        decimals: 18,
+        name: "ETH",
+        key: "ETH",
+        symbol: "ETH",
+        nativeCoin: true,
+    },
+];
+exports.default = tokens;
